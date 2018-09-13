@@ -1,0 +1,236 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+
+\mode<presentation> {
+	
+	% The Beamer class comes with a number of default slide themes
+	% which change the colors and layouts of slides. Below this is a list
+	% of all the themes, uncomment each in turn to see what they look like.
+	
+	%\usetheme{default}
+	%\usetheme{AnnArbor}
+	%\usetheme{Antibes}
+	%\usetheme{Bergen}
+	%\usetheme{Berkeley}
+	%\usetheme{Berlin}
+	%\usetheme{Boadilla}
+	%\usetheme{CambridgeUS}
+	%\usetheme{Copenhagen}
+	%\usetheme{Darmstadt}
+	%\usetheme{Dresden}
+	%\usetheme{Frankfurt}
+	%\usetheme{Goettingen}
+	%\usetheme{Hannover}
+	\usetheme{Ilmenau}
+	%\usetheme{JuanLesPins}
+	%\usetheme{Luebeck}
+	%\usetheme{Madrid}
+	%\usetheme{Malmoe}
+	%\usetheme{Marburg}
+	%\usetheme{Montpellier}
+	%\usetheme{PaloAlto}
+	%\usetheme{Pittsburgh}
+	%\usetheme{Rochester}
+	%\usetheme{Singapore}
+	%\usetheme{Szeged}
+	%\usetheme{Warsaw}
+	
+	% As well as themes, the Beamer class has a number of color themes
+	% for any slide theme. Uncomment each of these in turn to see how it
+	% changes the colors of your current slide theme.
+	
+	%\usecolortheme{albatross}
+	%\usecolortheme{beaver}
+	%\usecolortheme{beetle}
+	%\usecolortheme{crane}
+	%\usecolortheme{dolphin}
+	%\usecolortheme{dove}
+	%\usecolortheme{fly}
+	%\usecolortheme{lily}
+	%\usecolortheme{orchid}
+	%\usecolortheme{rose}
+	%\usecolortheme{seagull}
+	%\usecolortheme{seahorse}
+	%\usecolortheme{whale}
+	\usecolortheme{wolverine}
+	
+	%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+	%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+	
+	%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Método do Trapézio]{Método do Trapézio } % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Anthony Louis} % Your name
+\institute[UnB] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+	Universidade de Brasília \\ % Your institution for the title page
+	\medskip
+	\textit{anthonyferreira10@yahoo.com.br} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+	
+	\begin{frame}
+	\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+	\frametitle{Índice} % Table of contents slide, comment this block out to remove it
+	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%   PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Método do Trapézio} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Motivação}
+
+\begin{frame}
+	\frametitle{Motivação}
+	A regra do trapézio consiste em um jeito simples, rápido e prático de aproximar o valor da integral definida de uma função contínua durante um determinado intervalo. O método consiste em basicamente aproximar a integral $\int_{a}^{b}f\left(x\right)dx$ para uma integral $\int_{a}^{b}p_1\left(x\right)dx$, onde $p_1$(x) é um polinômio de grau 1 (reta). 
+\end{frame}
+
+\subsection{Explicação}
+\begin{frame}
+\frametitle{Método do Trapézio}
+	Logo, o polinômio para qual iremos aproximar primeiramente nossa função consiste na reta que passa pelos dois pontos localizados nos extremos do intervalo de integração. \\ 
+	
+	Ao realizar essa aproximação, nota-se que a área delimitada pela reta forma um trapézio de bases f(a) e f(b), com altura igual à (b-a). Dessa forma, podemos facilmente obter a integral da função, que consiste no cálculo da área do trapézio, que é:
+
+	\begin{equation}
+		\frac{\left(b-a\right)}{2} \times \left(f\left(a\right) + f\left(b\right) \right)
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exemplo do Método}
+	\begin{figure}
+		\caption{Figura exemplo}
+		\centering
+		\includegraphics[width=\linewidth]{imagens/graficoTrapezio.png}
+	\end{figure}
+\end{frame}
+
+\subsection{Estimativa do Erro}
+\begin{frame}
+\frametitle{Erro do Método}
+\begin{figure}
+	A estimativa para o erro dessa aproximação da regra do trapézio é igual a:
+	\begin{equation}
+		\vert E_{T} \vert \le \frac{\left(b-a\right)^3}{12} \textrm{\textbf{max}}\vert f''\left(x\right) \vert
+	\end{equation}
+	
+	Com x $\in$ [a, b]. Nota-se que essa aproximação origina erros muito grandes dependendo da função, o que leva a buscar formas de melhorar esse método.
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Método do Trapézio Repetido}
+
+\subsection{Definição}
+\begin{frame}
+\frametitle{Método do Trapézio Repetido}
+	Nota-se que a regra do Trapézio explicada anteriormente consiste em uma aproximação muito grosseira do resultado da integral da função. Assim, para melhorarmos a precisão do resultado da nossa integral, ao invés de dividirmos o intervalo em apenas um trapézio, iremos dividir o intervalo [a, b] em um conjunto de diversos trapézios de mesma altura. Sendo a altura igual à $\frac{b-a}{n}$, com n $\in \mathbb{N}$.	
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo}
+	\begin{figure}
+		\caption{Exemplo do Método do Trapézio Repetido}
+		\includegraphics[width=\linewidth]{imagens/trapeziorepetido.png}
+	\end{figure}	
+\end{frame}
+
+%------------------------------------------------
+\subsection{Expressão do Método}
+\begin{frame}
+\frametitle{Expressão do Método}
+\begin{block}{Aproximação da Integral}
+$\int_{a}^{b}f\left(x\right)dx \approx A_1 + A_2 + \dots + A_n$ 
+\end{block}
+
+\begin{block}{Expressão de cada área do trapézio}
+$A_i = \frac{h}{2} \times \left[f\left(x_{i-1}\right) + f\left(x_{i}\right) \right]$, sendo h o espaçamento entre os pontos e $i=1,2,\dots , n$.
+\end{block}
+
+\begin{block}{Expressão Simplificada}
+$\int_{a}^{b}f\left(x\right)dx \approx \frac{h}{2} \times \left[ f\left(x_0\right) + f\left(x_n\right) + 2\cdot\sum_{i=1}^{n-1} f\left(x_i\right)\right]$
+\end{block}
+\end{frame}
+
+%----------------%------------------------------------------------
+\subsection{Estimativa do Erro}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Erro para o método melhorado}
+\begin{block}{Expressão do Erro}
+$\vert E_{TR}\vert \le \frac{\left(b-a\right)^3}{12\cdot n^2} \textrm{\textbf{max}} \vert f''\left(x\right) \vert$
+\end{block}
+
+\begin{block}{Relação com o erro do primeiro método}
+$E_{TR} = \frac{E_T}{n^2}$
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+
+%------------------------------------------------
+
+\section{Referências}
+\begin{frame}
+\frametitle{Referências}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+https://www1.univap.br/spilling/CN/CNCapt6.pdf
+https://www.math.tecnico.ulisboa.pt/~calves/cursos/RTrap.HTM
+\end{thebibliography}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
