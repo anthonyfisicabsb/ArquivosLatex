@@ -1,0 +1,288 @@
+\documentclass{beamer}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+
+\mode<presentation> {
+	
+	% The Beamer class comes with a number of default slide themes
+	% which change the colors and layouts of slides. Below this is a list
+	% of all the themes, uncomment each in turn to see what they look like.
+	
+	%\usetheme{default}
+	%\usetheme{AnnArbor}
+	%\usetheme{Antibes}
+	%\usetheme{Bergen}
+	%\usetheme{Berkeley}
+	%\usetheme{Berlin}
+	%\usetheme{Boadilla}
+	%\usetheme{CambridgeUS}
+	%\usetheme{Copenhagen}
+	%\usetheme{Darmstadt}
+	%\usetheme{Dresden}
+	%\usetheme{Frankfurt}
+	%\usetheme{Goettingen}
+	%\usetheme{Hannover}
+	%\usetheme{Ilmenau}
+	%\usetheme{JuanLesPins}
+	%\usetheme{Luebeck}
+	%\usetheme{Madrid}
+	%\usetheme{Malmoe}
+	%\usetheme{Marburg}
+	%\usetheme{Montpellier}
+	%\usetheme{PaloAlto}
+	%\usetheme{Pittsburgh}
+	%\usetheme{Rochester}
+	%\usetheme{Singapore}
+	%\usetheme{Szeged}
+	\usetheme{Warsaw}
+	
+	% As well as themes, the Beamer class has a number of color themes
+	% for any slide theme. Uncomment each of these in turn to see how it
+	% changes the colors of your current slide theme.
+	
+	%\usecolortheme{albatross}
+	%\usecolortheme{beaver}
+	%\usecolortheme{beetle}
+	%\usecolortheme{crane}
+	%\usecolortheme{dolphin}
+	%\usecolortheme{dove}
+	%\usecolortheme{fly}
+	%\usecolortheme{lily}
+	\usecolortheme{orchid}
+	%\usecolortheme{rose}
+	%\usecolortheme{seagull}
+	%\usecolortheme{seahorse}
+	%\usecolortheme{whale}
+	%\usecolortheme{wolverine}
+	
+	%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+	%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+	
+	%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Raízes de Polinômio]{Raízes de Polinômio} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Anthony Louis} % Your name
+\institute[UnB] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+	Universidade de Brasília \\ % Your institution for the title page
+	\medskip
+	\textit{anthonyferreira10@yahoo.com.br} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+	
+	\begin{frame}
+	\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+	\frametitle{Índice} % Table of contents slide, comment this block out to remove it
+	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%   PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Polinômios} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Definição}
+
+\begin{frame}
+	\frametitle{O que são polinômios?}
+	Os polinômios são funções que são dadas da seguinte forma:
+	\begin{block}{Polinômios}
+		f(x) = $a_0 + a_1\cdot x + a_2\cdot x^2 + \cdots + a_n \cdot x^n$
+	\end{block} 
+
+    Onde n é chamado o grau do polinômio e o conjunto de $a_i$ os coeficientes do polinômio, que podem ser reais ou complexos.
+\end{frame}
+
+\subsection{Raízes}
+\begin{frame}
+\frametitle{O que são raízes?}
+	As raízes de um polinômio são quaisquer valores $x_i$ para os quais f($x_i$) = 0, podendo ser reais ou complexas.
+\end{frame}
+
+\begin{frame}
+\frametitle{Considerações sobre as raízes}
+\begin{figure}
+	\begin{itemize}
+		\item Em um polinômio de grau n, existem n raízes reais ou complexas, as quais não são necessariamente distintas.
+		\item Se n é ímpar, existe ao menos uma raiz real para o polinômio.
+		\item Se uma raiz do polinômio é complexa, então obrigatoriamente o seu conjugado(a + bi e a - bi) também é. 
+	\end{itemize}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Operações com polinômios}
+
+\subsection{Forma padrão}
+\begin{frame}
+\frametitle{Como se escrevem os polinômios geralmente}
+	Geralmente, a forma mais comum de se escrever um polinômio é a seguinte:
+	\begin{block}{Polinômios}
+		f(x) = $a_0 + a_1\cdot x + a_2\cdot x^2 + \cdots + a_n \cdot x^n$
+	\end{block}
+
+	Essa forma, demanda muitas operações e custo computacional à medida que o polinômio cresce, sendo necessárias $\frac{n\left(n+1\right)}{2}$ multiplicações e n somas.	
+\end{frame}
+
+%------------------------------------------------
+\subsection{Forma reduzida}
+\begin{frame}
+\frametitle{Forma mais econômica de se escrever o polinômio}
+	Para reduzir o custo computacional da forma demonstrada no slide anterior, escreve-se o polinômio da maneira reduzida, que é:
+	
+	\begin{block}{Forma reduzida}
+		f(x) = $\left(\cdots\left(\left(a_n x + a_{n-1}\right)x + \cdots\right)x + a_1\right)x + a_0$
+	\end{block}
+
+	\begin{block}{Exemplo}
+		f(x) = $\left(\left(a_3 x + a_2\right)x + a_1\right)x + a_0$
+	\end{block}
+
+    Essa forma requer apenas n operações de multiplicação e n operações de soma, reduzindo além do número de operações o erro de arredondamento do resultado final.
+\end{frame}
+
+%----------------%------------------------------------------------
+\subsection{Fatoração Polinomial}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Fatoração polinomial}
+	Certa vezes, uma raiz de um polinômio pode aparecer várias vezes. Dessa forma, uma boa maneira de visualizar o polinômio é através de sua forma fatorada, onde reescrevemos o polinômio da seguinte maneira:
+	
+	\begin{block}
+		f(x) = $k\cdot\left(x-a_1\right)^{b_1}\cdots\left(x-a_n\right)^{b_n}$
+	\end{block}
+
+    Onde $a_i$ é o conjunto de raízes do polinômio e $\sum b_i = n$, sendo n o grau do polinômio. Caso o polinômio seja dividido por qualquer um dos monômios acima, o resto da divisão será zero. Deve-se ressaltar que devido à aritmética de ponto flutuante, às vezes o resultado dessa divisão nos computadores pode divergir do valor original.
+\end{frame}
+
+\section{Métodos Convencionais}
+\subsection{Motivação}
+\begin{frame}
+\frametitle{Por que não utilizar os métodos abertos ou fechados?}
+	Porque ao se trabalhar com polinômios, por vezes os resultados obtidos são números complexos, o que inviabiliza o uso de métodos fechados e dificulta o uso dos métodos abertos devido à dificuldade de se dar um bom chute inicial. Contudo, caso o campo de trabalho seja os números reais, qualquer método aberto ou fechado descrito pode ser utilizado.
+\end{frame}
+
+\subsection{Método de Muller}
+\begin{frame}
+\frametitle{O método}
+	O método de muller é um método com comportamento similar ao método da secante, com a diferença agora que ao invés de obter dois pontos e verificara intersecção da reta que passa entre eles com o eixo x, agora encontraremos uma parábola e acharemos sua intersecção com o eixo x.
+	
+	\begin{figure}[h]
+		\includegraphics[width=1.0\linewidth, height=4cm]{imagens/ce1.jpg}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Os coeficientes}
+	Escolhendo três pontos diferentes da função, x0, x1 e x2, onde x2 é a estimativa do chute da raiz da função, define-se as seguintes diferenças:
+	\begin{itemize}
+		\item $h_0 = x_1 -x_0$
+		\item $h_1 = x_2 -x_1$
+		\item $\delta_0 = \frac{f\left(x_1\right) - f\left(x_0\right)}{x_1 - x_0}$
+		\item $\delta_1 = \frac{f\left(x_2\right) - f\left(x_1\right)}{x_2-x_1}$
+    \end{itemize}
+
+    Logo, os coeficientes do polinômio que intercepta os três pontos é igual a:
+	\begin{itemize}
+		\item a = $\frac{\delta_1 - \delta_0}{h_1 - h_0}$
+		\item b = $ah_1 + \delta_1$
+		\item c = f($x_2$)
+	\end{itemize}    
+\end{frame}
+
+\begin{frame}
+\frametitle{Raízes}
+Se aplicar a fórmula de Bháskara, encontra-se facilmente a raiz da equação com os coeficientes encontrados no slide anterior. Feito isso, irá utilizar agora o valor de x3, junto com x2 e x1 para estimar novos coeficientes e realizar um novo chute para o valor da raiz da equação.
+\end{frame}
+
+\begin{frame}
+\frametitle{Erro}
+	O erro do método é dado através da seguinte expressão:
+	\begin{block}{Erro do método}
+		$\epsilon$ = $\vert \frac{x_3 - x_2}{x_3} \vert$
+	\end{block}
+
+	Como existe dois valores possíveis para $x_3$, escolhe-se aquele cujo $\vert b \pm \sqrt{\Delta} \vert$ possua o maior módulo.
+\end{frame}
+
+\section{Método de Bairstow}
+%------------------------------------------------
+\subsection{O método}
+%------------------------------------------------
+\begin{frame}
+	\frametitle{O método}
+	O método é um método iterativo que se relaciona com os métodos de Muller e Newton-Rapson. Ele é formado de três passos principais:
+	\begin{itemize}
+		\item Chutar um valor inicial para a raiz, x=t
+		\item Dividir o polinômio do problema por um fator de x-t
+		\item Verificar se o resto é igual a zero, depois fazer um ajuste no valor e repetir os procedimentos
+	\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Continuação..}
+	Quando se efetua um chute para o valor da raiz e divide o polinômio pelo monômio x-t, obtém-se um polinômio de grau menor que n.
+	
+	\begin{block}{Resultado da divisão}
+		f(x) = $b_1 + b_2 x + b_3 x^2 + \cdots + b_n x^{n-1}$
+	\end{block}
+
+    Onde $b_i$ segue a seguinte equação de recorrência:
+    \begin{itemize}
+    	\item $b_n = a_n$
+    	\item $b_{n-1} = a_{n-1} + rb_n$
+    	\item $b_i = a_i + rb_{i+1} + sb_{i+2}$, para i=n-2 até 0
+    \end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Continuação..}
+Depois encontra-se um conjunto de coeficientes c com a seguinte equação de recorrência:
+\begin{itemize}
+	\item $c_n = b_n$
+	\item $c_{n-1} = b_{n-1} + rc_n$
+	\item $c_i = b_i + rc_{i+1} + sc_{i+2}$, para i=n-2 até 1
+\\
+Depois resolve-se o conjunto de equações:
+$c_2 \Delta r + c_3 \Delta s = - b_1$ \\
+$c_1 \Delta r + c_2 \Delta s = - b_0$
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{As raízes}
+O último passo é verificar o erro, que é dado por $\epsilon = \vert \frac{\Delta r}{r} \vert$. Quando o erro estiver num valor muito bom, os valores das raízes são dados por:
+\begin{equation}
+	x = \frac{r \pm \sqrt{r^2 + 4s}}{2}
+\end{equation}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
